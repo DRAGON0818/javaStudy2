@@ -16,7 +16,7 @@ public class TalkingClock {
     }
 
     public void start(){
-        ActionListener listener=new TimePrinter();
+        ActionListener listener=this.new TimePrinter();
         Timer t = new Timer(interval, listener);
         t.start();
 
@@ -26,7 +26,8 @@ public class TalkingClock {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("At the tone,the time is "+new Date());
-            if(TalkingClock.this.beep ) Toolkit.getDefaultToolkit().beep();
+            if( TalkingClock.this.beep ) Toolkit.getDefaultToolkit().beep();
+            System.out.println(System.getProperty("FileClass"));
         }
     }
 
