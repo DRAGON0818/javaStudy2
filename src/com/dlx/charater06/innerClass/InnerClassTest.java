@@ -11,9 +11,6 @@ public class InnerClassTest {
 
         TalkingClock m=new TalkingClock(1000,true);
         TalkingClock.TimePrinter timePrinter=m.new TimePrinter();
-
-
-
         JOptionPane.showMessageDialog(null,"ARE U QUIT?");
         System.exit(1);
     }
