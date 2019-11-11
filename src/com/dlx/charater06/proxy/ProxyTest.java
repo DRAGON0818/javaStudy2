@@ -10,6 +10,7 @@ import java.util.*;
  */
 public class ProxyTest
 {
+
    public static void main(String[] args)
    {
       Object[] elements = new Object[1000];
