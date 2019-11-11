@@ -13,6 +13,7 @@ public class CompanyTest {
 
         Company o = (Company) Proxy.newProxyInstance(classLoader, Fotile.class.getInterfaces(), handler);
         o.getName();
+        System.out.println("1234");
 
     }
 }
