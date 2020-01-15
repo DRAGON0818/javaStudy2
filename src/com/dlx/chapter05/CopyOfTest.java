@@ -4,6 +4,10 @@ import java.lang.reflect.*;
 import java.util.*;
 
 /**
+ * IDEA生成javadoc   在TOols下 Generate javadoc
+ */
+
+/**
  * 泛型数组代码
  * This program demonstrates the use of reflection for manipulating arrays.
  * @version 1.2 2012-05-04
@@ -46,6 +50,7 @@ public class CopyOfTest
      * copying all elements.
      * @param a the array to grow. This can be an object array or a primitive
      * type array
+     * @param newLength the new array's length
      * @return a larger array that contains all elements of a.
      */
     public static Object goodCopyOf(Object a, int newLength)
