@@ -79,7 +79,7 @@ class Employee
     }
 
     /**
-     * @return
+     * @return 返回ID
      * @since version 1.0.1
      * @deprecated please do not use
      */

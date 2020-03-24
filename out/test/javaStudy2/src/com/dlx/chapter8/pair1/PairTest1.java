@@ -52,11 +52,13 @@ class ArrayAlg {
     }
 
     /**
-     * @param a
-     * @param <T>
-     * @return 泛型方法可以定义在普通类中，也可以定义在泛型类中
-     * 类型变量<T> 定义在修饰符之后，返回值之前。
-     */
+     * @param <T> 任意类型
+     * @param a 数组
+     * @return 泛型方法可以定义在普通类中，也可以定义在泛型类中，类型变量T 定义在修饰符之后，返回值之前。
+     * @see "test for javadoc"
+     *
+     *
+     * */
     public static <T extends Comparable> T getMiddle(T... a) {
         return a[a.length / 2];
     }
