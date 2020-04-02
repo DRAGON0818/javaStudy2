@@ -11,17 +11,14 @@ public class LoggerTest {
     static final Logger chapter_07 = Logger.getLogger("com.fotile.dlx.Chapter07");
 
     public static void main(String[] args) throws IOException {
-        System.setProperty("java.util.logging.config.file","logging.properties");
-
         /**
          * 全局日志记录记录器
          */
         Logger global = Logger.getGlobal();
-        global.setLevel(Level.ALL);
         global.info("1234");
-        global.setLevel(Level.ALL);
         global.fine("22222");
         global.severe("2345");
+        global.finest("xxxxx");
         global.logp(Level.SEVERE,LoggerTest.class.getName(),"main","2345");
         //Logger.getGlobal().setLevel(Level.OFF);//将会取消所有的日志
         /**
