@@ -1,23 +1,35 @@
 package com.dlx.chapter07.Log;
+import org.junit.platform.commons.logging.LoggerFactory;
+
 import java.io.IOException;
-import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LoggerTest {
+    /*未被引用的日志记录器，可能会被GC回收，所以需要用static final存储这个引用*/
     static final Logger chapter_07 = Logger.getLogger("com.fotile.dlx.Chapter07");
 
     public static void main(String[] args) throws IOException {
+        System.setProperty("java.util.logging.config.file","logging.properties");
+
         /**
          * 全局日志记录记录器
          */
-        Logger.getGlobal().warning("Tired");
+        Logger global = Logger.getGlobal();
+        global.setLevel(Level.ALL);
+        global.info("1234");
+        global.setLevel(Level.ALL);
+        global.fine("22222");
+        global.severe("2345");
+        global.logp(Level.SEVERE,LoggerTest.class.getName(),"main","2345");
         //Logger.getGlobal().setLevel(Level.OFF);//将会取消所有的日志
         /**
          * 通过Logger.getLogger("")获得自定义日志记录器，未被引用的日志处理器可能会被GC清理，所以建议将用一个静态常亮存储一个日志记录器的引用
          */
+
         System.out.println(chapter_07.getName());
+        chapter_07.entering("com.dlx.chapter07.Log.LoggetTest","main",new Object[]{});
 
         /**
          * 日志还可以绑定资源包（ResearchBundle），用于在不同国家上输出
