@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Modifier;
 import java.util.Date;
 
 public class TalkingClock {
@@ -27,7 +28,7 @@ public class TalkingClock {
         public void actionPerformed(ActionEvent e) {
             System.out.println("At the tone,the time is "+new Date());
             if( TalkingClock.this.beep ) Toolkit.getDefaultToolkit().beep();
-            System.out.println(System.getProperty("FileClass"));
+            //System.out.println(System.getProperty("FileClass"));
         }
     }
 

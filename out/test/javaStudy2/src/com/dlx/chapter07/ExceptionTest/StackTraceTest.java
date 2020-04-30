@@ -35,6 +35,7 @@ public class StackTraceTest {
         int n = in.nextInt();
         factorial(n);
        /**
+        * assert断言是默认关闭的，想要显示需要通过-ea来开启
         * 断言表达式 assert 条件:表达式;
         * 系统会把表达式通过构造函数保存在AssertionError对象中
         * AssertionError对象不保存表达式，只是用表达式来创建一条字符串输出。
