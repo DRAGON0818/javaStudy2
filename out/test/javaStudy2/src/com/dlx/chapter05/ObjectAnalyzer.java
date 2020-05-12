@@ -31,7 +31,7 @@ public class ObjectAnalyzer {
 
         System.out.println("This is a Class Instance");
         String r = cl.getName();
-        System.out.println(r + ":");
+        System.out.print(r + ":");
         do {
             r += "[";
             Field[] fields = cl.getDeclaredFields();
@@ -39,7 +39,6 @@ public class ObjectAnalyzer {
                 System.out.print(f.getType().getName()+","+cl.getName() + "." + f.getName() + ",");
                 System.out.println(Modifier.isStatic(f.getModifiers()));
             }
-            System.out.println("\n");
             AccessibleObject.setAccessible(fields, true);
             // get the names and values of all fields
             for (Field f : fields) {

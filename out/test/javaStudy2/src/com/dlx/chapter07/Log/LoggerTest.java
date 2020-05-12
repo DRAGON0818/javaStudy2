@@ -11,8 +11,6 @@ public class LoggerTest {
     static final Logger chapter_07 = Logger.getLogger("com.fotile.dlx.Chapter07");
 
     public static void main(String[] args) throws IOException {
-        System.setProperty("java.util.logging.config.file","logging.properties");
-
         /**
          * 全局日志记录记录器
          */

@@ -9,6 +9,7 @@ public class ObjectAnalyzerTest {
             squares.add(i * i);
         }
         System.out.println(new ObjectAnalyzer().toString(squares));
+        System.out.println(new StringBuffer("new"));
       //  System.out.println(new ObjectAnalyzer().toString(new int[]{1,2,3,4}));
 
     }

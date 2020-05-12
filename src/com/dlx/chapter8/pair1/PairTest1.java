@@ -37,7 +37,7 @@ class ArrayAlg {
             if (min.compareTo(temp) > 0) min = temp;
             if (max.compareTo(temp) < 0) max = temp;
         }
-        return new Pair<>(min, max);
+        return new Pair(min, max);
     }
 
     public static Pair<String> minmax(String[] strings) {
@@ -48,7 +48,7 @@ class ArrayAlg {
             if (min.compareTo(strings[i]) > 0) min = strings[i];
             if (max.compareTo(strings[i]) < 0) max = strings[i];
         }
-        return new Pair<>(min, max);
+        return new Pair(min, max);
     }
 
     /**
