@@ -1,5 +1,7 @@
 package com.dlx.chapter07.ExceptionTest;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.*;
 
 /**
@@ -34,12 +36,17 @@ public class StackTraceTest {
         System.out.print("Enter n: ");
         int n = in.nextInt();
         factorial(n);
-       /**
-        * assert断言是默认关闭的，想要显示需要通过-ea来开启
-        * 断言表达式 assert 条件:表达式;
-        * 系统会把表达式通过构造函数保存在AssertionError对象中
-        * AssertionError对象不保存表达式，只是用表达式来创建一条字符串输出。
-        */
-       assert 3<1:new Exception("3不比1小");
+        /**
+         * 断言表达式 assert 条件:表达式;
+         * 系统会把表达式通过构造函数保存在AssertionError对象中
+         * AssertionError对象不保存表达式，只是用表达式来创建一条字符串输出。
+         */
+
+        Throwable st = new Throwable();
+        StringWriter stringWriter = new StringWriter();
+        st.printStackTrace(new PrintWriter(stringWriter));
+        String describtion = stringWriter.toString();
+        System.out.println(describtion);
+        assert 3 < 1 : new Exception("3不比1小");
     }
 }

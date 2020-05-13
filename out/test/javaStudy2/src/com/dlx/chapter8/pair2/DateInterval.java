@@ -12,7 +12,8 @@ public class DateInterval extends Pair<LocalDate> {
     }
 
     public void setSecond(LocalDate localDate){
-        if(first.compareTo(second)<0)
+       if(localDate.compareTo(first)<0)
             super.setSecond(localDate);
     }
+
 }

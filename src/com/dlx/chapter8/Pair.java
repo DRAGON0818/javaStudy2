@@ -1,5 +1,7 @@
 package com.dlx.chapter8;
 
+import com.dlx.chapter06.Person;
+
 public class Pair<T> {
     public T first;
     public  T second;
@@ -28,5 +30,9 @@ public class Pair<T> {
 
     public void setSecond(T second) {
         this.second = second;
+    }
+
+    public static void printBuddies(Pair<? extends Person> pair){
+
     }
 }
