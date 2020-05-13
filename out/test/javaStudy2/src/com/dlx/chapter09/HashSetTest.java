@@ -1,6 +1,8 @@
 package com.dlx.chapter09;
 
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 /**
  * Set 和 Map的区别在域Map是用于存储“键/值”的映射结构
@@ -12,5 +14,6 @@ public class HashSetTest {
         set.add("1");
         set.add("2");
         System.out.println(set);
+
     }
 }

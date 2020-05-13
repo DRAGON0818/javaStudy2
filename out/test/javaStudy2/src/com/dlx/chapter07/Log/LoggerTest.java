@@ -1,6 +1,4 @@
 package com.dlx.chapter07.Log;
-import org.junit.platform.commons.logging.LoggerFactory;
-
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
