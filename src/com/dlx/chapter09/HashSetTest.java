@@ -1,8 +1,6 @@
 package com.dlx.chapter09;
 
-import java.util.HashSet;
-import java.util.NavigableSet;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Set 和 Map的区别在域Map是用于存储“键/值”的映射结构
@@ -44,5 +42,14 @@ public class HashSetTest {
 
         System.out.println("=====================================");
 
+        Map<String,Integer> str=new HashMap<>();
+        str.put("word",100);
+        str.putIfAbsent("word",0);
+        System.out.println(str.get("word"));
+
+        str.merge("null",1,Integer::sum);
+        System.out.println(str.get("null"));
+        str.merge("null",1,Integer::sum);
+        System.out.println(str.get("null"));
     }
 }
