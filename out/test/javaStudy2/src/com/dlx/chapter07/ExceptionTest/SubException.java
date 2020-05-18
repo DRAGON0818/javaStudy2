@@ -15,6 +15,10 @@ public class SubException extends SuperException{
             System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * 建议try/catch,try/finally 解耦合
+     */
     @Override
     public void SuperException()  {
         try {

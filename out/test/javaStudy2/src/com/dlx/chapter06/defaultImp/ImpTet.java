@@ -5,5 +5,9 @@ package com.dlx.chapter06.defaultImp;
  * 1.将类指定为抽象类
  * 2.实现冲突的函数。
  */
-public abstract class ImpTet implements Named,Person{
+public class ImpTet implements Named,Person{
+    @Override
+    public String getName() {
+        return null;
+    }
 }

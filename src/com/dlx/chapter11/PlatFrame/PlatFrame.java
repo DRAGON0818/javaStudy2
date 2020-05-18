@@ -9,10 +9,8 @@ import javax.swing.*;
 public class PlatFrame extends JFrame {
     private JPanel jPanel;
     public PlatFrame(){
-        System.out.println(UIManager.getLookAndFeel());
         jPanel = new JPanel();
         UIManager.LookAndFeelInfo[] installedLookAndFeels = UIManager.getInstalledLookAndFeels();
-        System.out.println(installedLookAndFeels.length);
         for(UIManager.LookAndFeelInfo info:installedLookAndFeels)
         {
             makeButton(info.getName(),info.getClassName());
@@ -26,12 +24,10 @@ public class PlatFrame extends JFrame {
     private void makeButton(String name,String className){
         JButton button=new JButton(name);
         jPanel.add(button);
-        System.out.println(name+"+"+className);
         button.addActionListener(e->{
             try {
                 UIManager.setLookAndFeel(className);
                 SwingUtilities.updateComponentTreeUI(this);
-                System.out.println(UIManager.getLookAndFeel());
             } catch (ClassNotFoundException classNotFoundException) {
                 classNotFoundException.printStackTrace();
             } catch (InstantiationException instantiationException) {

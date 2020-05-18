@@ -21,13 +21,13 @@ public class test {
         }
 
 //        //<span style="font-family: Arial, Helvetica, sans-serif;">方法3：</span><span style="font-family: Arial, Helvetica, sans-serif;">查看所有线程堆栈的跟踪信息</span>
-//        Map<Thread, StackTraceElement[]> stacksMap=Thread.getAllStackTraces();
-//
-//        for(Thread t:stacksMap.keySet()){
-//            StackTraceElement[] elements = stacksMap.get(t);
-//            for(StackTraceElement element:elements){
-//                System.out.println("堆栈信息："+element.toString());System.out.println("堆栈信息："+element.toString());
-//            }
-//        }
+        Map<Thread, StackTraceElement[]> stacksMap=Thread.getAllStackTraces();
+
+        for(Thread thread:stacksMap.keySet()){
+            StackTraceElement[] stackElement = stacksMap.get(thread);
+            for(StackTraceElement element:stackElement){
+                System.out.println("堆栈信息："+element.toString());
+            }
+        }
     }
 }

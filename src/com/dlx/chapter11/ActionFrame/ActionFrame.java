@@ -26,7 +26,7 @@ public class ActionFrame extends JFrame{
         add(panel);
 
         /**
-         *
+         * inputmap+actionmap 实现键和监听的绑定
          */
         InputMap inputMap = panel.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);//获得组件的输入映射
         inputMap.put(KeyStroke.getKeyStroke("Y"), "panel.Yellow");
@@ -37,14 +37,16 @@ public class ActionFrame extends JFrame{
         map.put("panel.Yellow",yellow);
         map.put("panel.Blue", blue);
         map.put("panel.Red", red);
-
     }
 
 }
 
 /**
- * Action接口是动作接口，是ActionListener的子接口，用于监听各类动作（1.按钮 2.键盘 3.）
+ * Action接口是动作接口，是ActionListener的子接口，用于监听各类动作（1.按钮 2.键盘 3.菜单选择）
+ * 其中包含了ActionListener的actionPerformed方法。
+ * 以及对动作的描述putValue/getValue方法,动作是否启用isEnable/setEnable方法
  *
+ *  JDK提供了一个AbstractAction方法，实现了Action的默认方法
  *
  */
 class ColorAction extends AbstractAction{

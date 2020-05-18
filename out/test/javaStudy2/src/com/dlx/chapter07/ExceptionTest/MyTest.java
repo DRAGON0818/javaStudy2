@@ -32,7 +32,7 @@ public class MyTest {
         } catch (FileNotFoundException e) {
             /**
              * 将原始异常包装为更通用的异常的“原因”。
-             * TIP:如果一个方法中发生了一个“受查异常”，而不允许抛出异常，那么可以捕获这个异常，包装成“运行时异常”。
+             * TIP:如果一个方法中发生了一个“受查异常”，而不允许抛出异常(子方法的异常范围不能大于父方法的异常范围！)，那么可以捕获这个异常，包装成“运行时异常”。
              */
             Throwable se=new FileNotFoundException("something error");
             se.initCause(e);
