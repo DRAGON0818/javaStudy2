@@ -17,6 +17,7 @@ public class shuffleTest {
         Collections.sort(numbers);
         int i = Collections.binarySearch(numbers, 99);
         System.out.println(i);
-        
+        numbers.toArray();
+
     }
 }

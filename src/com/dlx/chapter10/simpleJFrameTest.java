@@ -10,6 +10,12 @@ public class simpleJFrameTest {
            // simpleJFrame.setUndecorated(true);
             simpleJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             simpleJFrame.setVisible(true);
+
+            SimpleJFrame jFrame=new SimpleJFrame();
+            //可以让窗口系统控制窗口的位置    setLocationByPlatform()方法
+            jFrame.setLocationByPlatform(true);
+            jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            jFrame.setVisible(true);
         });
     }
 }
