@@ -14,7 +14,7 @@ public class MyAction2 extends JFrame {
         JButton green = new JButton(greenAction);
         jPanel.add(yellow);
         jPanel.add(green);
-        add(jPanel);
+        add(jPanel,BorderLayout.SOUTH);
 
         //获得控件的InputMap对象和ActionMap对象   绑定KeyStroke，来确定键的监听
         InputMap inputMap = jPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);

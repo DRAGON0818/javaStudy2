@@ -1,7 +1,4 @@
 package com.dlx.chapter11.MousFrame;
-
-import com.sun.prism.Graphics;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -31,8 +28,10 @@ public class MouseConponent extends JComponent {
         return new Dimension(WIDTH, HEIGHT);
     }
 
+    @Override
     public void paintComponent(Graphics g){
         Graphics2D g2=(Graphics2D)g;
+        g2.setColor(Color.BLACK);
         for(Rectangle2D r:squares){
             g2.draw(r);
         }
@@ -97,7 +96,7 @@ public class MouseConponent extends JComponent {
             if(find(e.getPoint())==null) setCursor(Cursor.getDefaultCursor());
             else
             {
-                setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
+                setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
             }
         }
     }

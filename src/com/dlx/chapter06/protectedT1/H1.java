@@ -9,7 +9,13 @@ public class H1 implements Cloneable{
         System.out.println(H.clone());
         final  String salu="Hello";
 
-        Greeting greeting=message -> System.out.println(salu+message);
+        Greeting greeting=new Greeting() {
+            @Override
+            public void sayMessage(String message) {
+                System.out.println(salu+message);
+            }
+        };
+        // Greeting greeting=message -> System.out.println(salu+message);
         greeting.sayMessage("  Runbo");
     }
 

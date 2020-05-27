@@ -4,13 +4,13 @@ import javax.swing.*;
 
 public class InnerClassTest {
     public static void main(String[] args) {
-//        TalkingClock t=new TalkingClock(1000,true);
-//        t.start();
+        TalkingClock t=new TalkingClock(1000,true);
+        t.start();
 
-        TalkingClock m=new TalkingClock(1000,true);
-        TalkingClock.TimePrinter timePrinter=m.new TimePrinter();
-        m.start();
-        JOptionPane.showMessageDialog(null,"ARE U QUIT?");
+//        TalkingClock m=new TalkingClock(1000,true);
+//        TalkingClock.TimePrinter timePrinter=m.new TimePrinter();
+//        m.start();
+//        JOptionPane.showMessageDialog(null,"ARE U QUIT?");
         //System.exit(1);
     }
 
