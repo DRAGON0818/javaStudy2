@@ -2,9 +2,9 @@ package com.dlx.chapter14.UnsychBank;
 
 public class UnsynchBank {
 
-    public static final int NACCOUNTS=100;
+    public static final int NACCOUNTS=10;
     public static final double INITIAL_BALANCE=1000;
-    public static final double MAX_AMOUNT=1000;
+    public static final double MAX_AMOUNT=2000;
     public static final int DELAY=10;
 
     public static void main(String[] args) {
