@@ -1,7 +1,4 @@
 package com.dlx.chapter14.UnsychBank;
-
-import org.omg.PortableServer.THREAD_POLICY_ID;
-
 import java.util.Arrays;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
