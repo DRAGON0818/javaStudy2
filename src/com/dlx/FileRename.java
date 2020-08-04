@@ -11,7 +11,7 @@ public class FileRename {
             String directoryName = f.getName();
             System.out.println(directoryName);
             System.out.println(f.getAbsolutePath());
-            renameFile(directoryName,f.getAbsolutePath());
+            renameFile(f.getAbsolutePath());
         }
         else
         {
@@ -20,14 +20,18 @@ public class FileRename {
     }
 
 
-    public static void renameFile(String directoryName,String directoryPath)
+    public static void renameFile(String directoryPath) throws NullPointerException
     {
-        File f = new File(directoryPath);
-        File[] files = f.listFiles();
-        for (File file:files){
-            if(file.isFile()){
-                file.renameTo(new File("C:\\Users\\donglxa\\Desktop\\新建文件夹\\1.txt"));
+        try {
+            File f = new File(directoryPath);
+            File[] files = f.listFiles();
+            for (File file : files) {
+                if (file.isFile()) {
+                    boolean b = file.renameTo(new File("C:\\Users\\donglxa\\Desktop\\新建文件夹\\1.txt"));
+                }
             }
+        }catch (NullPointerException e){
+            throw e;
         }
     }
 }
