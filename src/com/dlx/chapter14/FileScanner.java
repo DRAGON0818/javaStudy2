@@ -15,7 +15,7 @@ public class FileScanner {
             return;
         }
         File[] allFiles = f.listFiles();
-        Thread.currentThread().interrupt();
+        //Thread.currentThread().interrupt();
         /*if(Thread.interrupted()) {
             throw new InterruptedException("文件扫描任务被中断1");
         }*/
@@ -53,6 +53,7 @@ public class FileScanner {
         };
         Thread t=new Thread() {
             public void run() {
+                System.out.println("命令:");
                 while(true) {
                     if(!"quit".equalsIgnoreCase(readFromConsole())) {
                         if(fileIteratorThread.isAlive()) {
@@ -61,11 +62,13 @@ public class FileScanner {
                         }
                     } else {
                         System.out.println("输入quit退出文件扫描");
+                        System.exit(1);
                     }
                 }
             }
         };
         fileIteratorThread.start();
+        Thread.sleep(10000);
         t.start();
     }
 }

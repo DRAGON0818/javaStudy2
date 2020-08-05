@@ -1,4 +1,4 @@
-package com.dlx.chapter14.UnsychBank;
+package com.dlx.chapter14.SychBank;
 import java.util.Arrays;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -44,14 +44,11 @@ public class Bank {
             for (double a : accounts) {
                 sum += a;
             }
-
             return sum;
         }
         finally {
             bankLock.unlock();
         }
-
-
     }
 
     public int size(){

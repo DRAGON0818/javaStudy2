@@ -1,4 +1,4 @@
-package com.dlx.chapter14.UnsychBank;
+package com.dlx.chapter14.SychBank;
 
 public class UnsynchBank {
 

@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Dragon0818
+ * Java 1.8
+ */
 public class BounceFrame extends JFrame{
     private BallComponent comp;
     public static final int STEPS=1000;

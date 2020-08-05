@@ -14,9 +14,9 @@ public class BlockingQueueTest {
 
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in)){
-            System.out.print("Enter base directory (e.g. /opt/jdk.1.8.9/src)");
+            System.out.println("Enter base directory (e.g. /opt/jdk.1.8.9/src)");
             String directory = in.nextLine();
-            System.out.print("Enter keyword (e.g. volatile)");
+            System.out.println("Enter keyword (e.g. volatile)");
             String keyword = in.nextLine();
 
             Runnable enumrator=()->{
