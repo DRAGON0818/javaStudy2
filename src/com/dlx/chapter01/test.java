@@ -31,6 +31,8 @@ public class test {
 
         System.out.println(1<<3);
         String text="我累了\u1D546啊啊";
+        int[] ints = text.codePoints().toArray();
+        System.out.println(Arrays.toString(ints)+":~~~~~~");
         System.out.println(text.codePoints().toArray().length);
         System.out.println(text);
         System.out.println("码点数量："+text.codePointCount(0,text.length()));

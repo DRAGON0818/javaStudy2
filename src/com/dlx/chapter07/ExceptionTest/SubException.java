@@ -1,6 +1,5 @@
 package com.dlx.chapter07.ExceptionTest;
 
-
 import org.junit.Test;
 
 import java.io.FileInputStream;
@@ -8,7 +7,7 @@ import java.io.FileNotFoundException;
 
 public class SubException extends SuperException{
     @Test
-    void test(){
+    public void test(){
         try {
             SuperException();
         }catch (Throwable e){
@@ -24,6 +23,7 @@ public class SubException extends SuperException{
         try {
             try {
                 FileInputStream fileInputStream = new FileInputStream("a.txt");
+                System.out.println(fileInputStream);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
