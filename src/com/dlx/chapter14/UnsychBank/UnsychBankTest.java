@@ -1,8 +1,10 @@
 package com.dlx.chapter14.UnsychBank;
 
-public class UnsynchBank {
+import com.dlx.chapter14.UnsychBank.Bank;
 
-    public static final int NACCOUNTS=100;
+public class UnsychBankTest {
+
+    public static final int NACCOUNTS=22;
     public static final double INITIAL_BALANCE=1000;
     public static final double MAX_AMOUNT=1000;
     public static final int DELAY=10;
@@ -14,7 +16,7 @@ public class UnsynchBank {
             Runnable r=()->{
                 while (true) {
                     int toAccount = (int) (bank.size() * Math.random());
-                    double amount=MAX_AMOUNT*Math.random();
+                    double amount=20*Math.random();
                     bank.transfer(fromAccount, toAccount, amount);
                     try {
                         Thread.sleep((int)(DELAY*Math.random()));
