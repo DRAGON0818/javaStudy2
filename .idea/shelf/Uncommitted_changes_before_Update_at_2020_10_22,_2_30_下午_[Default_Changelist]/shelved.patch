@@ -1,0 +1,145 @@
+Index: src/com/dlx/chapter14/ThreadPool/ThreadPoolTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.dlx.chapter14.ThreadPool;\n\nimport java.io.File;\nimport java.util.Scanner;\nimport java.util.concurrent.*;\n\n\n/**\n * 执行器 Executors 有许多静态工厂方法用于构建线程池。\n * 构建一个新线程需要和系统进行交互，是有代价的。\n * 存在大量的生命周期很短的线程，应该使用线程池 ThreadPool；\n * 使用线程池 还能够减少并发线程的数量\n */\npublic class ThreadPoolTest {\n    public static void main(String[] args) {\n        try (Scanner in=new Scanner(System.in)){\n            System.out.println(\"Enter base directory:(e.g. /usr/local/)\");\n            String directory = in.nextLine();\n            System.out.println(\"Enter keyword:\");\n            String keyword = in.nextLine();\n\n            ExecutorService pool = Executors.newCachedThreadPool();\n\n            MatchCounter counter = new MatchCounter(new File(directory), keyword, pool);\n            Future<Integer> result = pool.submit(counter);\n\n            try {\n                System.out.println(result.get() + \" matching files\");\n            } catch (ExecutionException e) {\n                e.printStackTrace();\n            } catch (InterruptedException e) {\n\n            }\n            pool.shutdown();\n\n            int largestPoolSize = ((ThreadPoolExecutor) pool).getLargestPoolSize();\n            System.out.println(\"largest pool size=\"+largestPoolSize);\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/dlx/chapter14/ThreadPool/ThreadPoolTest.java	(revision 9f19382b38ef06543877797c84c4e5f53445549a)
++++ src/com/dlx/chapter14/ThreadPool/ThreadPoolTest.java	(date 1603348192540)
+@@ -4,25 +4,18 @@
+ import java.util.Scanner;
+ import java.util.concurrent.*;
+ 
+-
+-/**
+- * 执行器 Executors 有许多静态工厂方法用于构建线程池。
+- * 构建一个新线程需要和系统进行交互，是有代价的。
+- * 存在大量的生命周期很短的线程，应该使用线程池 ThreadPool；
+- * 使用线程池 还能够减少并发线程的数量
+- */
+ public class ThreadPoolTest {
+     public static void main(String[] args) {
+-        try (Scanner in=new Scanner(System.in)){
+-            System.out.println("Enter base directory:(e.g. /usr/local/)");
++        try (Scanner in = new Scanner(System.in)) {
++            System.out.println("enter base directory:");
+             String directory = in.nextLine();
+-            System.out.println("Enter keyword:");
++            System.out.println("Enter keyword");
+             String keyword = in.nextLine();
+ 
+-            ExecutorService pool = Executors.newCachedThreadPool();
++            ExecutorService executorService = Executors.newCachedThreadPool();
+ 
+-            MatchCounter counter = new MatchCounter(new File(directory), keyword, pool);
+-            Future<Integer> result = pool.submit(counter);
++            MatchCounter counter = new MatchCounter(new File(directory), keyword, executorService);
++            Future<Integer> result = executorService.submit(counter);
+ 
+             try {
+                 System.out.println(result.get() + " matching files");
+@@ -31,10 +24,9 @@
+             } catch (InterruptedException e) {
+ 
+             }
+-            pool.shutdown();
++            executorService.shutdown();
+ 
+-            int largestPoolSize = ((ThreadPoolExecutor) pool).getLargestPoolSize();
+-            System.out.println("largest pool size="+largestPoolSize);
++            System.out.println("largest pool size:"+((ThreadPoolExecutor)executorService).getLargestPoolSize());
+         }
+     }
+ }
+Index: src/com/dlx/chapter14/ThreadPool/MatchCounter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.dlx.chapter14.ThreadPool;\n\nimport java.io.File;\nimport java.io.IOException;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.Scanner;\nimport java.util.concurrent.Callable;\nimport java.util.concurrent.ExecutionException;\nimport java.util.concurrent.ExecutorService;\nimport java.util.concurrent.Future;\n\npublic class MatchCounter implements Callable<Integer> {\n    private File directory;\n    private String keyword;\n    private int count;\n    private ExecutorService pool;\n\n\n    public MatchCounter(File directory, String keyword, ExecutorService pool) {\n        this.directory = directory;\n        this.keyword = keyword;\n        this.pool = pool;\n    }\n\n    @Override\n    public Integer call() throws Exception {\n        count = 0;\n        try {\n            File[] files = directory.listFiles();\n            List<Future<Integer>> results = new ArrayList<>();\n\n            for (File file : files)\n                if (file.isDirectory()) {\n                    MatchCounter counter = new MatchCounter(file, keyword, pool);\n                    Future<Integer> result = pool.submit(counter);\n                    results.add(result);\n                } else {\n                    if (search(file)) {\n                        count++;\n                    }\n                }\n\n                for (Future<Integer> result : results) {\n                    try {\n                        count += result.get();\n                    } catch (ExecutionException e) {\n                        e.printStackTrace();\n                    }\n                }\n\n        } catch (InterruptedException e) {\n\n        }\n        return count;\n    }\n\n\n    public boolean search(File file) {\n        try {\n            try (Scanner in = new Scanner(file, \"UTF-8\")) {\n                boolean found = false;\n                while (!found && in.hasNext()) {\n                    String line = in.nextLine();\n                    if (line.contains(keyword)) {\n                        found = true;\n                    }\n                }\n                if(found){\n                    System.out.println(file.getAbsoluteFile());\n                }\n                return found;\n            }\n        } catch (IOException e) {\n            return false;\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/dlx/chapter14/ThreadPool/MatchCounter.java	(revision 9f19382b38ef06543877797c84c4e5f53445549a)
++++ src/com/dlx/chapter14/ThreadPool/MatchCounter.java	(date 1603348192536)
+@@ -13,9 +13,8 @@
+ public class MatchCounter implements Callable<Integer> {
+     private File directory;
+     private String keyword;
+-    private int count;
+     private ExecutorService pool;
+-
++    private int count;
+ 
+     public MatchCounter(File directory, String keyword, ExecutorService pool) {
+         this.directory = directory;
+@@ -25,54 +24,51 @@
+ 
+     @Override
+     public Integer call() throws Exception {
+-        count = 0;
++
++        count=0;
+         try {
+             File[] files = directory.listFiles();
+             List<Future<Integer>> results = new ArrayList<>();
+ 
+-            for (File file : files)
++            for (File file : files) {
+                 if (file.isDirectory()) {
+                     MatchCounter counter = new MatchCounter(file, keyword, pool);
+                     Future<Integer> result = pool.submit(counter);
+                     results.add(result);
+                 } else {
+-                    if (search(file)) {
++                    if (serach(file)) {
+                         count++;
+                     }
+                 }
++            }
+ 
+-                for (Future<Integer> result : results) {
+-                    try {
+-                        count += result.get();
+-                    } catch (ExecutionException e) {
+-                        e.printStackTrace();
+-                    }
+-                }
+-
++            for (Future<Integer> result : results) {
++                try {
++                    count += result.get();
++                } catch (ExecutionException e) {
++                    e.printStackTrace();
++                }
++            }
+         } catch (InterruptedException e) {
+ 
+         }
+         return count;
+     }
+ 
+-
+-    public boolean search(File file) {
++    public boolean serach(File file) {
+         try {
+-            try (Scanner in = new Scanner(file, "UTF-8")) {
++            try (Scanner in = new Scanner(file,"UTF-8")) {
+                 boolean found = false;
+                 while (!found && in.hasNext()) {
+                     String line = in.nextLine();
+-                    if (line.contains(keyword)) {
++                    if (line.contains(keyword))
+                         found = true;
+-                    }
+                 }
+-                if(found){
+-                    System.out.println(file.getAbsoluteFile());
+-                }
+                 return found;
+             }
+         } catch (IOException e) {
+             return false;
+         }
++
+     }
+ }

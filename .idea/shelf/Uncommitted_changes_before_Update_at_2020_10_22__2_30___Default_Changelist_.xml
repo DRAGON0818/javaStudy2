@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_2020_10_22,_2_30_下午_[Default_Changelist]" date="1603348243746" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_10_22,_2_30_下午_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2020/10/22, 2:30 下午 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/javaStudy2/com/dlx/chapter14/ThreadPool/ThreadPoolTest.class" />
+    <option name="AFTER_PATH" value="out/production/javaStudy2/com/dlx/chapter14/ThreadPool/ThreadPoolTest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_10_22,_2_30_下午_[Default_Changelist]/ThreadPoolTest.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/javaStudy2/com/dlx/chapter14/ThreadPool/MatchCounter.class" />
+    <option name="AFTER_PATH" value="out/production/javaStudy2/com/dlx/chapter14/ThreadPool/MatchCounter.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_10_22,_2_30_下午_[Default_Changelist]/MatchCounter.class" />
+  </binary>
+</changelist>
