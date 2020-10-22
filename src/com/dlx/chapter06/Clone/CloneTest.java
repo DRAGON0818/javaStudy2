@@ -1,6 +1,6 @@
 package com.dlx.chapter06.Clone;
 
-public class CloneTest implements Cloneable{
+public class CloneTest implements Cloneable {
     public static void main(String[] args) throws CloneNotSupportedException {
         CloneTest c=new CloneTest();
         Object clone = c.clone();

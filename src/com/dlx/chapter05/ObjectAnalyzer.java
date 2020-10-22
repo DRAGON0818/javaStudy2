@@ -7,7 +7,9 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 
 public class ObjectAnalyzer {
+    //记录访问过的数据，避免无限递归
     private ArrayList<Object> visited = new ArrayList<>();
+    private static int anum=0;
 
     public String toString(Object obj) {
 
@@ -29,7 +31,7 @@ public class ObjectAnalyzer {
             return r + "}";
         }
 
-        System.out.println("This is a Class Instance");
+        System.out.println("This is a Class Instance :"+ cl.getName() + " ~ "+anum++);
         String r = cl.getName();
         System.out.print(r + ":");
         do {

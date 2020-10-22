@@ -15,4 +15,7 @@ public class Person1  {
     public String getName(){
         return this.name;
     }
+    protected void H(){
+        System.out.println("Person1's protected方法");
+    }
 }

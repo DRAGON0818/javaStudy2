@@ -7,7 +7,8 @@ public class Temp  implements Person,Student{
         String a="xxx";
         String b="yyy";
         System.out.println(a.compareToIgnoreCase(b));
-
+        System.out.println(new Temp().getAge());
+        System.out.println(new Temp().getName());
     }
 
     @Override
