@@ -16,9 +16,7 @@ public class DynamicProxyTest {
         AdminService proxy = (AdminService) new AdminServiceDynamicProxy(adminService, adminServiceInvocation).getPersonProxy();
         System.out.println("代理对象 : " + proxy.getClass());
 
-        Object find = proxy.find();
-        System.out.println("find 返回对象 : " + find.getClass());
-        System.out.println("=================");
+        proxy.find();
         proxy.update();
 
 
@@ -28,9 +26,7 @@ public class DynamicProxyTest {
         AdminService proxy1 = (AdminService) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), invocation);
         System.out.println("代理对象 : " + proxy1.getClass());
 
-        Object object2 = proxy1.find();
-        System.out.println("find 返回对象 ：" + object2.getClass());
-        System.out.println("=================");
+        proxy1.find();
         proxy1.update();
 
         System.out.println("=== 方法三 ===");
@@ -38,16 +34,16 @@ public class DynamicProxyTest {
         AdminService proxy3= (AdminService) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                System.out.println("*****************" + method.getName()+ "*******************");
+                System.out.println("proxy : "+proxy.getClass().getName());//这是个回掉函数，此时并没有proxy实例，所以print(proxy)报错
                 System.out.println("判断用户是否有权进行操作");
-                Object object = method.invoke(target, args);
+                Object object = method.invoke(target3, args);
                 System.out.println("记录用户执行操作的时间、更改内容和时间等");
                 return object;
             }
         });
 
-        Object object3 = proxy3.find();
-        System.out.println("find返回对象: " + object3.getClass());
-        System.out.println("===============");
+        proxy3.find();
         proxy3.update();
 
     }

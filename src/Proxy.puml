@@ -1,0 +1,37 @@
+@startuml
+
+interface AdminService {
+    void print();
+    Object find();
+}
+
+class AdminServieImp{
+    void print(){ // }
+    Object find(){//}
+}
+
+class AdminServiceProxy{
+    AdminService adminService;//存储目标类对象
+    public AdminServiceProxy(AdminService adminService){//}
+    void print(){//}
+    Object find(){//}
+}
+
+AdminServieImp <|-- AdminService
+AdminServiceProxy <|--AdminService
+
+
+interface InvocationHandler{
+    public Object invoke(Proxy ,Method,Object[]);
+}
+
+class AdminServiceInvocation{
+    Object target;//存储目标类对象
+    public AdminServiceInvocation(Object target){//}
+
+    public Object invoke(Proxy , Method , Object[])**返回代理类实例{//}
+}
+
+AdminServiceInvocation <|-- InvocationHandler
+
+@enduml
