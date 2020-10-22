@@ -1,4 +1,4 @@
-package com.dlx.chapter14.threadPool;
+package com.dlx.chapter14.ThreadPool;
 
 import java.io.File;
 import java.util.Scanner;
