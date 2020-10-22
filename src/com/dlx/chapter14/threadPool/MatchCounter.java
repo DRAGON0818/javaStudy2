@@ -16,6 +16,7 @@ public class MatchCounter implements Callable<Integer> {
     private ExecutorService pool;
     private int count;
 
+
     public MatchCounter(File directory, String keyword, ExecutorService pool) {
         this.directory = directory;
         this.keyword = keyword;
@@ -56,6 +57,7 @@ public class MatchCounter implements Callable<Integer> {
     }
 
     public boolean serach(File file) {
+        System.out.println("123");
         try {
             try (Scanner in = new Scanner(file,"UTF-8")) {
                 boolean found = false;
