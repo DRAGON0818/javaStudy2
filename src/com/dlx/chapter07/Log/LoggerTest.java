@@ -10,13 +10,14 @@ public class LoggerTest {
 
     public static void main(String[] args) throws IOException {
         /**
-         * 全局日志记录记录器
+         * 全局日志记录记录器，配置文件 : jdk/jre/lib/logging.properties
          */
         Logger global = Logger.getGlobal();
         global.info("1234");
         global.fine("22222");
         global.severe("2345");
         global.finest("xxxxx");
+
         global.logp(Level.SEVERE,LoggerTest.class.getName(),"main","2345");
         //Logger.getGlobal().setLevel(Level.OFF);//将会取消所有的日志
         /**
@@ -24,6 +25,7 @@ public class LoggerTest {
          */
 
         System.out.println(chapter_07.getName());
+        chapter_07.setLevel(Level.ALL);
         chapter_07.entering("com.dlx.chapter07.Log.LoggetTest","main",new Object[]{});
 
         /**

@@ -11,6 +11,7 @@ public class AdminServiceInvocation implements InvocationHandler {
         System.out.println("target : "+ target);
     }
 
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("****************"+method.getName()+"****************");

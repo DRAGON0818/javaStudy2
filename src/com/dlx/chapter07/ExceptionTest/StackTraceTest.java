@@ -40,13 +40,15 @@ public class StackTraceTest {
          * 断言表达式 assert 条件:表达式;
          * 系统会把表达式通过构造函数保存在AssertionError对象中
          * AssertionError对象不保存表达式，只是用表达式来创建一条字符串输出。
+         * 开启断言需要设置运行参数   java -ea XXXX 。
+         * 断言是有类加载器控制的
          */
 
         Throwable st = new Throwable();
-        StringWriter stringWriter = new StringWriter();
+       /* StringWriter stringWriter = new StringWriter();
         st.printStackTrace(new PrintWriter(stringWriter));
-        String describtion = stringWriter.toString();
-        System.out.println(describtion);
+        String describtion = stringWriter.toString();*/
+        System.out.println(Arrays.toString(st.getStackTrace()));
         assert 3 < 1 : new Exception("3不比1小");
     }
 }

@@ -20,9 +20,7 @@ public class MyTest {
         }catch (Throwable e){
             System.out.println(e.getMessage());
             Throwable cause = e.getCause();
-            System.out.println("in");
-            cause.printStackTrace();
-            System.out.println("out");
+            System.out.println(cause.getMessage());
         }
     }
 

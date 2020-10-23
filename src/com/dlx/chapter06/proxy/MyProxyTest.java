@@ -10,16 +10,16 @@ import java.lang.reflect.Proxy;
  */
 public class MyProxyTest {
     public static void main(String[] args) {
-        Integer target=4;
-        Comparable object = (Comparable)Proxy.newProxyInstance(null, new Class[]{Comparable.class}, new InvocationHandler() {
+        Double target = 2020.1024;
+        Comparable<Double> proxy=(Comparable<Double>) Proxy.newProxyInstance(null,new Class[]{Comparable.class}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                System.out.println("Proxy : " + proxy.getClass().getName());
+                System.out.println("compare completed!");
                 return method.invoke(target, args);
             }
         });
-        System.out.println(object.compareTo(40));
-        System.out.println("*********************");
-        System.out.println(object.compareTo(3));
+        System.out.println(proxy.compareTo(new Double(1234)));
+        System.out.println(proxy.compareTo(new Double(234243243)));
+        System.out.println(Proxy.isProxyClass(proxy.getClass()));
     }
 }
