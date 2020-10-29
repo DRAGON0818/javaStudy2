@@ -44,8 +44,6 @@ public class test {
         Pair<Integer> p = new Pair<>();
         System.out.println(p.getClass().getName());
 
-   
-
     }
 }
 

@@ -1,5 +1,6 @@
 package com.dlx.chapter07.Log;
 import java.io.IOException;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,10 +25,10 @@ public class LoggerTest {
          * 通过Logger.getLogger("")获得自定义日志记录器，未被引用的日志处理器可能会被GC清理，所以建议将用一个静态常亮存储一个日志记录器的引用
          */
 
+
         System.out.println(chapter_07.getName());
         chapter_07.setLevel(Level.ALL);
         chapter_07.entering("com.dlx.chapter07.Log.LoggetTest","main",new Object[]{});
-
         /**
          * 日志还可以绑定资源包（ResearchBundle），用于在不同国家上输出
          * Logger a=new Logger.getLogger(loggerName,"资源包")
@@ -45,6 +46,7 @@ public class LoggerTest {
         Logger logger = Logger.getLogger("com.mycompany.myapp");
         logger.setLevel(Level.FINE);
         logger.setUseParentHandlers(false);
+
         /**
          * FileHandler默认的输出在C盘当前用户目录下，java0.log文件
          * 以下的日志输出为XML格式：
@@ -69,9 +71,10 @@ public class LoggerTest {
         fileHandler.setLevel(Level.INFO);
         logger.severe("GG");
         System.out.println(System.getProperty("user.dir"));
-        /*ConsoleHandler consoleHandler = new ConsoleHandler();
+        ConsoleHandler consoleHandler = new ConsoleHandler();
         consoleHandler.setLevel(Level.FINE);
+        consoleHandler.setFormatter(new MyFormatter());
         logger.addHandler(consoleHandler);
-        logger.severe("GG");*/
+        logger.severe("GG");
     }
 }
